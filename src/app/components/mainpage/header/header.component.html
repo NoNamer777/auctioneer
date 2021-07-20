@@ -3,9 +3,12 @@
     <a href="#" class="navbar-brand">
       <img src="assets/images/hammer.jpg" alt="">
     </a>
-    <div class="text-center w-100 px-3 mx-1 border-end border-start flex-grow-1 flex-shrink-1">
-      <h2>The Auctioneer</h2>
-      <p class="text-end">Offered to you by:<br>Oscar Wellner</p>
+    <div class="text-center w-100 px-3 mx-1 border-end border-start align-self-stretch d-flex flex-column justify-content-between">
+      <h2 class="align-self-center mt-3">The Auctioneer</h2>
+      <div class="d-flex justify-content-between">
+        <p class="text-start flex-grow-1 flex-shrink-1 border-end mb-0">Today is <br>{{ dateToday }}</p>
+        <p class="text-end flex-grow-1 flex-shrink-1 mb-0">Offered to you by:<br>Oscar Wellner</p>
+      </div>
     </div>
     <a href="#" class="navbar-brand">
       <img src="assets/images/clock.jpg" alt="">
