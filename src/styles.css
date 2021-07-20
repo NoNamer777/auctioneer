@@ -1,2 +1,5 @@
-
-/*# sourceMappingURL=styles.css.map *//*# sourceMappingURL=styles.css.map */
+html,
+body {
+  margin: 0;
+  min-width: 890px;
+}/*# sourceMappingURL=styles.css.map */

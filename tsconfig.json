@@ -35,7 +35,8 @@
       "@app/*": [ "app/*" ],
       "@assets/*": [ "assets/*" ],
       "@environments/*": [ "environments/*" ],
-      "@modules/*": [ "app/modules/*" ]
+      "@modules/*": [ "app/modules/*" ],
+      "@components/*": [ "app/components/*" ]
     }
   },
   "angularCompilerOptions": {

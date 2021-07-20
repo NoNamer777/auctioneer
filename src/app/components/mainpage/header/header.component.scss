@@ -1,0 +1,22 @@
+:host {
+  nav.navbar {
+    padding-top: 0;
+
+    div.container-fluid {
+      flex-wrap: nowrap;
+      padding: 0;
+
+      a.navbar-brand {
+        height: 8rem;
+        width: 12rem;
+        margin: 0;
+        padding: 0;
+
+        img {
+          height: inherit;
+          width: inherit;
+        }
+      }
+    }
+  }
+}
