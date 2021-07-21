@@ -60,6 +60,34 @@ export class Offer {
     this.valueHighestBid = valueHighestBid;
   }
 
+  static randomOffer(id: number): Offer {
+    const random = new Offer();
+
+    random.id = OFFER_ID_BASE + id;
+    random.title = `A great article offer-${id}`;
+    random.auctionStatus = randomAuctionStatus();
+    random.sellDate = this.randomDateTime();
+    random.valueHighestBid = this.randomBid(random._auctionStatus);
+
+    return random;
+  }
+
+  static clone(offer: Offer): Offer {
+    return Object.assign(new Offer(), offer);
+  }
+
+  equals(object: object): boolean {
+    if (!(object instanceof Offer) || null) return false;
+    if (object === this) return true;
+
+    const other = object as Offer;
+
+    return other.title === this.title
+      && other.auctionStatus === this.auctionStatus
+      && other.sellDate === this.sellDate
+      && other.valueHighestBid === this.valueHighestBid;
+  }
+
   get id(): number {
     return this._id;
   }
@@ -118,18 +146,6 @@ export class Offer {
     if (value == null) return;
 
     this._valueHighestBid = value;
-  }
-
-  static randomOffer(id: number): Offer {
-    const random = new Offer();
-
-    random.id = OFFER_ID_BASE + id;
-    random.title = `A great article offer-${id}`;
-    random.auctionStatus = randomAuctionStatus();
-    random.sellDate = this.randomDateTime();
-    random.valueHighestBid = this.randomBid(random._auctionStatus);
-
-    return random;
   }
 
   private static randomDateTime(): Date {

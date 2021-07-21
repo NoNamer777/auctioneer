@@ -1,0 +1,60 @@
+<form *ngIf="offer; else selectMessage" #offerForm="ngForm">
+  <div class="table-responsive-md">
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col" colspan="2">Selected offer details (id = {{ offer.id }})</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <label for="offer-title-input">Title</label>
+          </th>
+          <td class="p-0">
+            <input type="text" class="form-control m-0" id="offer-title-input" name="title" [(ngModel)]="offer.title">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="offer-description-input">Description</label>
+          </th>
+          <td class="p-0">
+            <input type="text" class="form-control m-0" id="offer-description-input" name="description" [(ngModel)]="offer.description">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="offer-status-select">Status</label>
+          </th>
+          <td class="p-0">
+            <select class="form-select" id="offer-status-select" name="offer-status" [(ngModel)]="offer.auctionStatus">
+              <option *ngFor="let status of offerStatuses" [value]="auctionStatus[status]">
+                {{ status }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            <label for="offer-highest-bid-input">Highest Bid</label>
+          </th>
+          <td class="p-0">
+            <input type="number" class="form-control m-0" id="offer-highest-bid-input" name="highestBid" [(ngModel)]="offer.valueHighestBid">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-danger me-2" type="button" (click)="onDelete()" [disabled]="hasBeenEdited">Delete</button>
+    <button class="btn btn-success me-2" type="button" (click)="onSave()" [disabled]="hasNotBeenEdited">Save</button>
+    <button class="btn btn-warning me-2" type="button" (click)="onClear()" [disabled]="hasBeenCleared">Clear</button>
+    <button class="btn btn-secondary me-2" type="button" (click)="onReset()" [disabled]="hasNotBeenEdited">Reset</button>
+    <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</form>
+
+<ng-template #selectMessage>
+  <p>Please select an Offer on the left.</p>
+</ng-template>
