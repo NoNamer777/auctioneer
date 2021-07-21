@@ -1,5 +1,5 @@
 import { AuctionStatus, randomAuctionStatus } from "@models/auction-status.enum";
-import { randomNumber } from "@models/common";
+import { NullishValue, randomNumber } from "@models/common";
 
 enum Month {
   JANUARY   = 0,
@@ -39,17 +39,86 @@ const RND_SELL_DATE_YEAR_RANGE = 40;
 
 export class Offer {
 
-  id: number;
+  private _id: number;
 
-  title: string;
+  private _title: string;
 
-  auctionStatus: AuctionStatus;
+  private _auctionStatus: AuctionStatus;
 
-  description: string;
+  private _description: string;
 
-  sellDate: Date;
+  private _sellDate: Date;
 
-  valueHighestBid: number;
+  private _valueHighestBid: number;
+
+  constructor(id?: number, title?: string, auctionStatus?: AuctionStatus, description?: string, sellDate?: Date, valueHighestBid?: number) {
+    this.id = id;
+    this.title = title;
+    this.auctionStatus = auctionStatus;
+    this.description = description;
+    this.sellDate = sellDate;
+    this.valueHighestBid = valueHighestBid;
+  }
+
+  get id(): number {
+    return this._id;
+  }
+
+  set id(value: number | NullishValue) {
+    if (value == null) return;
+
+    this._id = value;
+  }
+
+  get title(): string {
+    return this._title;
+  }
+
+  set title(value: string | NullishValue) {
+    if (value == null) return;
+
+    this._title = value;
+  }
+
+  get auctionStatus(): AuctionStatus {
+    return this._auctionStatus;
+  }
+
+  set auctionStatus(value: AuctionStatus | NullishValue) {
+    if (value == null) return;
+
+    this._auctionStatus = value;
+  }
+
+  get description(): string {
+    return this._description;
+  }
+
+  set description(value: string | NullishValue) {
+    if (value == null) return;
+
+    this._description = value;
+  }
+
+  get sellDate(): Date {
+    return this._sellDate;
+  }
+
+  set sellDate(value: Date | NullishValue) {
+    if (value == null) return;
+
+    this._sellDate = value;
+  }
+
+  get valueHighestBid(): number {
+    return this._valueHighestBid;
+  }
+
+  set valueHighestBid(value: number | NullishValue) {
+    if (value == null) return;
+
+    this._valueHighestBid = value;
+  }
 
   static randomOffer(id: number): Offer {
     const random = new Offer();
@@ -58,7 +127,7 @@ export class Offer {
     random.title = `A great article offer-${id}`;
     random.auctionStatus = randomAuctionStatus();
     random.sellDate = this.randomDateTime();
-    random.valueHighestBid = this.randomBid(random.auctionStatus);
+    random.valueHighestBid = this.randomBid(random._auctionStatus);
 
     return random;
   }
