@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Offer } from '@app/models/offer.model';
 
-export const BASE_NUMBER_OF_OFFERS_GENERATED = 8;
+import { generateRandomOffers } from '@models/common';
+import { Offer } from '@models/offer.model';
 
 @Component({
   selector: 'auc-overview1',
@@ -12,14 +12,11 @@ export class Overview1Component implements OnInit {
 
   offers: Offer[];
 
-  private offersGenerated = BASE_NUMBER_OF_OFFERS_GENERATED;
+  private offersGenerated: number;
 
   ngOnInit(): void {
-    this.offers = [];
-
-    for (let i = 0; i < BASE_NUMBER_OF_OFFERS_GENERATED;) {
-      this.offers.push(Offer.randomOffer(++i));
-    }
+    this.offers = generateRandomOffers();
+    this.offersGenerated = this.offers.length;
   }
 
   onAddOffer(): void {

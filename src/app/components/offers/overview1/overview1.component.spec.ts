@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Overview1Component } from './overview1.component';
+
 
 describe('Overview1Component', () => {
 
@@ -32,19 +32,16 @@ describe('Overview1Component', () => {
     expect(table!.getElementsByTagName('tr').length).toBe(9);
   });
 
-  it('Should add a new randomly generated Offer on button click', waitForAsync(() => {
-    let table: HTMLTableElement | null = element.querySelector('table');
+  it('Should add a new randomly generated Offer on button click', async () => {
     const addOfferButton: HTMLButtonElement | null = element.querySelector('button');
 
-    expect(table!.getElementsByTagName('tr').length).toBe(9);
+    expect(element.getElementsByTagName('tr').length).toBe(9);
 
     addOfferButton!.click();
     fixture.detectChanges();
 
-    fixture.whenStable().then(() => {
-      table = element.querySelector('table');
+    await fixture.whenStable();
 
-      expect(table!.getElementsByTagName('tr').length).toBe(10);
-    });
-  }));
+    expect(element.getElementsByTagName('tr').length).toBe(10);
+  });
 });
