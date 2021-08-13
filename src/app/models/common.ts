@@ -17,3 +17,9 @@ export function generateRandomOffers(): Offer[] {
 
   return offers;
 }
+
+export const DISCARD_CHANGES_CONFIRMATION_MESSAGE = 'Are you sure to discard unsaved changes?';
+
+export function DELETE_CONFIRMATION_MESSAGE(offerId: number) {
+  return `Are you sure you want to delete Offer with id: '${offerId}'?\nThis change is unrevertable.`;
+}

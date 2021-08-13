@@ -1,14 +1,9 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { OffersService } from '@services/offers.service';
+import { DELETE_CONFIRMATION_MESSAGE, DISCARD_CHANGES_CONFIRMATION_MESSAGE } from '@models/common';
 import { AuctionStatus } from '@models/auction-status.enum';
 import { Offer } from '@models/offer.model';
-
-function DELETE_CONFIRMATION_MESSAGE(offerId: number) {
-  return `Are you sure you want to delete Offer with id: '${offerId}'?\nThis change is unrevertable.`;
-}
-
-const DISCARD_CHANGES_CONFIRMATION_MESSAGE = 'Are you sure to discard unsaved changes?';
 
 @Component({
   selector: 'auc-detail3',

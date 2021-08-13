@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { BrowserModule, By } from '@angular/platform-browser';
-
-import { OffersService } from '@services/offers.service';
+import { By } from '@angular/platform-browser';
 import { Detail3Component } from '@components/offers/detail3/detail3.component';
 import * as common from '@models/common';
 import { Offer } from '@models/offer.model';
+import { OffersService } from '@services/offers.service';
 import { dispatchEvent } from '@testing/common';
 import { OFFERS } from '@testing/models/offer.mock';
 
@@ -35,10 +34,7 @@ describe('Detail3Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        BrowserModule,
-        FormsModule,
-      ],
+      imports: [ FormsModule ],
       declarations: [
         Detail3Component,
         Overview3MockComponent,
