@@ -13,8 +13,28 @@
         <li class="nav-item">
           <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">My Offers</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            My Offers
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="/offers/overview1" routerLinkActive="active" class="dropdown-item">All offers list</a>
+            </li>
+            <li>
+              <a routerLink="/offers/overview2" class="dropdown-item">M/D ( component store )</a>
+            </li>
+            <li>
+              <a routerLink="/offers/overview3" class="dropdown-item">M/D ( with service )</a>
+            </li>
+            <li>
+              <a routerLink="/offers/overview4" class="dropdown-item">M/D ( routerparams )</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a

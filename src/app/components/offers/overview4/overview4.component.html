@@ -1,0 +1,33 @@
+<section>
+  <h3>Overview of all offered articles</h3>
+  <div class="d-flex justify-content-between">
+    <div>
+      <div class="table-responsive-md">
+        <table class="table table-striped table-hover table-bordered">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Offer Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let offer of offers">
+              <td scope="row" (click)="onSelectOffer(offer)" [class.table-info]="selectedOffer === offer">
+                {{ offer.title }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" type="button" (click)="onAddOffer()">Add Offer</button>
+      </div>
+    </div>
+    <div class="mx-4 flex-grow-1 flex-shrink-1">
+      <router-outlet *ngIf="selectedOffer; else selectOfferMessage"></router-outlet>
+    </div>
+  </div>
+
+  <ng-template #selectOfferMessage>
+    <p>Please select an Offer on the left.</p>
+  </ng-template>
+</section>

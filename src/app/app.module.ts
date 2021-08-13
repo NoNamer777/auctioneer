@@ -16,6 +16,8 @@ import { Detail2Component } from '@components/offers/detail2/detail2.component';
 import { Overview3Component } from '@components/offers/overview3/overview3.component';
 import { Detail3Component } from '@components/offers/detail3/detail3.component';
 import { ErrorComponent } from './components/mainpage/error/error.component';
+import { Overview4Component } from './components/offers/overview4/overview4.component';
+import { Detail4Component } from './components/offers/detail4/detail4.component';
 import { DestroyedListeningComponent } from './components/destroyed-listening/destroyed-listening.component';
 
 @NgModule({
@@ -30,6 +32,8 @@ import { DestroyedListeningComponent } from './components/destroyed-listening/de
     Overview3Component,
     Detail3Component,
     ErrorComponent,
+    Overview4Component,
+    Detail4Component,
     DestroyedListeningComponent,
   ],
   imports: [
